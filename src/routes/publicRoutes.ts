@@ -6,7 +6,7 @@ interface configRoute {
   title: string
   path: string
   element: FC
-  layout?: null | FC
+  layout?: React.ElementType
 }
 export const publicRoutes: configRoute[] = [
   { title: 'Home', path: '/', element: Home },
@@ -14,7 +14,6 @@ export const publicRoutes: configRoute[] = [
     title: 'Login',
     path: '/login',
     element: Login,
-    layout: null,
   },
   {
     title: 'Profile',

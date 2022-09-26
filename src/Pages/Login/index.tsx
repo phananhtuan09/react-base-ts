@@ -11,7 +11,7 @@ interface inputProps {
   onChange: Function
   onBlur: Function
   value: string
-  error: any
+  error: string
 }
 function Login() {
   const formik = useFormik({
