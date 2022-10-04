@@ -3,10 +3,13 @@ const Login = React.lazy(() => import('@/Pages/Login'))
 const Register = React.lazy(() => import('@/Pages/Register'))
 const Home = React.lazy(() => import('@/Pages/Home'))
 const Profile = React.lazy(() => import('@/Pages/Profile'))
+
 const NullLayout = React.lazy(() => import('@/Components/Layout/NullLayout'))
 import { RouteProps } from '@/interfaces/routeProps.interface'
+
 export const publicRoutes: RouteProps[] = [
   { title: 'Home', path: '/', element: Home, private: true },
+
   {
     title: 'Login',
     path: '/login',

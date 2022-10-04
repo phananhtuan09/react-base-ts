@@ -1,12 +1,19 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { publicRoutes } from '@/routes/publicRoutes'
+
 import React, { Fragment, Suspense } from 'react'
 import PrivateRoute from '@/routes/privateRoutes'
 // import * as testApi from '@/apiServices/testApi'
+
 const DefaultLayout = React.lazy(
   () => import('@/Components/Layout/DefaultLayout')
 )
 const NotFoundPage = React.lazy(() => import('@/Pages/NotFound'))
+
+interface MyInFo {
+  name: string
+  job: string
+}
 
 function App() {
   //useEffect(() => {
@@ -35,6 +42,7 @@ function App() {
 
   //handleEditUser()
   // }, [])
+
   return (
     <BrowserRouter>
       <Routes>

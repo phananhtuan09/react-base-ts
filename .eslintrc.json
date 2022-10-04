@@ -19,8 +19,11 @@
     "no-dupe-keys": ["error"],
     "no-empty-character-class": ["error"],
     "no-undef": "off",
-    "no-unused-vars": "off",
-    "import/no-named-as-default": "off"
+
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/img-redundant-alt": "off",
+    "no-unused-vars": "off"
   },
   "parserOptions": {
     "ecmaVersion": 2021,

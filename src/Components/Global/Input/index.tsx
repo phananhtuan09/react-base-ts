@@ -4,7 +4,7 @@ import './Input.scss'
 function Input({
   disabled = false,
   readOnly = false,
-  error = null,
+  error = '',
   className = '',
   ...inputProps
 }) {
