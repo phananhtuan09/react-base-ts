@@ -1,11 +1,8 @@
 import Header from '../Header'
 import Footer from '../Footer'
 import React, { ReactNode } from 'react'
+import { Props } from '@/interfaces/childProps.interface'
 
-interface Props {
-  children?: ReactNode
-  // any props that come into the component
-}
 const DefaultLayout = ({ children }: Props) => {
   return (
     <div className="wrapper">

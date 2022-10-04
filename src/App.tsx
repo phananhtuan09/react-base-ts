@@ -1,49 +1,49 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { publicRoutes } from '@/routes/publicRoutes'
-import React, { Fragment, Suspense, useEffect } from 'react'
-
-import * as testApi from '@/apiServices/testApi'
+import React, { Fragment, Suspense } from 'react'
+import PrivateRoute from '@/routes/privateRoutes'
+// import * as testApi from '@/apiServices/testApi'
 const DefaultLayout = React.lazy(
   () => import('@/Components/Layout/DefaultLayout')
 )
 const NotFoundPage = React.lazy(() => import('@/Pages/NotFound'))
 
 function App() {
-  useEffect(() => {
-    let myInfo = {
-      //   name: 'Tuan',
-      //   email: 'dfbgdfbdf@gmail.com',
-      //   gender: 'male',
-      //   status: 'active',
-      name: 'morpheus',
-      job: 'zion resident',
-    }
-    // const fetchApi = async () => {
-    //   const result = await testApi.addUsers(myInfo)
-    //   console.log(result)
-    // }
-    // fetchApi()
-    const handleEditUser = async () => {
-      //const result = await testApi.getUsers(2)
-      //const result = await testApi.addUsers(myInfo)
-      const result = await testApi.editUsers(2, myInfo)
+  //useEffect(() => {
+  //let myInfo = {
+  //   name: 'Tuan',
+  //   email: 'dfbgdfbdf@gmail.com',
+  //   gender: 'male',
+  //   status: 'active',
+  // name: 'morpheus',
+  //job: 'zion resident',
+  //}
+  // const fetchApi = async () => {
+  //   const result = await testApi.addUsers(myInfo)
+  //   console.log(result)
+  // }
+  // fetchApi()
+  // const handleEditUser = async () => {
+  //const result = await testApi.getUsers(2)
+  //const result = await testApi.addUsers(myInfo)
+  // const result = await testApi.editUsers(2, myInfo)
 
-      // const result = await testApi.deleteUsers(2)
+  // const result = await testApi.deleteUsers(2)
 
-      console.log('result', result)
-    }
+  //console.log('result', result)
+  //}
 
-    handleEditUser()
-  }, [])
+  //handleEditUser()
+  // }, [])
   return (
     <BrowserRouter>
       <Routes>
         {publicRoutes.map((route) => {
-          let Layout: any = DefaultLayout
+          let Layout!: React.ElementType
           if (route.layout) {
             Layout = route.layout
-          } else if (route.layout === null) {
-            Layout = Fragment
+          } else {
+            Layout = DefaultLayout
           }
           return (
             <Route
@@ -51,7 +51,13 @@ function App() {
               element={
                 <Suspense fallback={<>...</>}>
                   <Layout>
-                    <route.element />
+                    {route.private ? (
+                      <PrivateRoute>
+                        <route.element />
+                      </PrivateRoute>
+                    ) : (
+                      <route.element />
+                    )}
                   </Layout>
                 </Suspense>
               }

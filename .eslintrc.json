@@ -15,10 +15,12 @@
     "for-direction": ["error"],
     "no-cond-assign": ["error", "always"],
     "no-const-assign": ["error"],
-    "no-duplicate-imports": ["error", { "includeExports": true }],
+    "no-duplicate-imports": "off",
     "no-dupe-keys": ["error"],
     "no-empty-character-class": ["error"],
-    "no-undef": "off"
+    "no-undef": "off",
+    "no-unused-vars": "off",
+    "import/no-named-as-default": "off"
   },
   "parserOptions": {
     "ecmaVersion": 2021,

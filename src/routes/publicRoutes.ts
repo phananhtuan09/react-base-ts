@@ -1,24 +1,30 @@
 import React, { FC } from 'react'
 const Login = React.lazy(() => import('@/Pages/Login'))
+const Register = React.lazy(() => import('@/Pages/Register'))
 const Home = React.lazy(() => import('@/Pages/Home'))
 const Profile = React.lazy(() => import('@/Pages/Profile'))
-interface configRoute {
-  title: string
-  path: string
-  element: FC
-  layout?: null | FC
-}
-export const publicRoutes: configRoute[] = [
-  { title: 'Home', path: '/', element: Home },
+const NullLayout = React.lazy(() => import('@/Components/Layout/NullLayout'))
+import { RouteProps } from '@/interfaces/routeProps.interface'
+export const publicRoutes: RouteProps[] = [
+  { title: 'Home', path: '/', element: Home, private: true },
   {
     title: 'Login',
     path: '/login',
     element: Login,
-    layout: null,
+    layout: NullLayout,
+    private: false,
+  },
+  {
+    title: 'Register',
+    path: '/register',
+    element: Register,
+    layout: NullLayout,
+    private: false,
   },
   {
     title: 'Profile',
     path: '/profile',
     element: Profile,
+    private: true,
   },
 ]

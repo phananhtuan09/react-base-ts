@@ -1,8 +1,7 @@
 import axios from 'axios'
 import { stringify } from 'qs'
-// const domainUrl = process.env.REACT_APP_BASE_URL
-const domainUrl: string = 'https://reqres.in/api'
-const accessToken: string = ''
+const domainUrl = process.env.REACT_APP_BASE_URL
+const accessToken = process.env.REACT_APP_ACCESS_TOKEN
 export const ApiClient = {
   getHeaders(contentType: string = 'application/x-www-form-urlencoded') {
     return {
@@ -67,7 +66,7 @@ export const ApiClient = {
        * status code that falls out of the range of 2xx
        */
       let errorResponse = {
-        message: error.message,
+        message: error.response.data,
         status: error.response.status,
         headers: error.response.headers,
       }
